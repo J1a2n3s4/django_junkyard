@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Shop Page</title>
+    <style>
+        body{
+            font-family:'Courier New';
+        }
+        footer, header{
+            width: 100%;
+            text-align: center;
+            background-color: lightslategray;
+            border: 1px solid darkslategrey
+        }
+
+        main{
+            display: flex;
+            background-color: darkslategray;
+        }
+        .product{
+            text-align: center;
+            width: 24vw;
+            height: 24vw;
+            background-color: grey;
+            color:azure;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>ONLINE JUNKYARD</h1></header>
+    <main>
+
+        {% for x in products %}
+        
+        <div class="product">
+            <img class="" src="{% static x.image_url %}">
+            <h2>{{x.name}}</h2>
+            <p>{{x.description}}</p>
+
+        </div>
+
+        {% endfor %}
+
+    </main>
+    <footer><h1>Made by Jedrzej Burczynski 3C</h1></footer>
+</body>
+</html>
