@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Shop Page</title>
+    <style>
+
+
+        body{
+            font-family:'Courier New';
+            background: url("/static/BG.png");
+            padding: 0;
+        }
+        footer, header{
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgb(118, 118, 118)
+        }
+        main{
+            display: flex;
+            background-color: rgba(0,0,0,0.2);
+            margin:0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product{
+            text-align: center;
+            width: 22vw;
+            padding: auto;
+            height: 40vw;
+            background-color: rgb(100,100,100);
+            color:azure;
+            margin: 20px;
+        }
+
+        .productimg{
+            width: 60vw;
+            height: 60vw;
+            object-fit: cover;
+            margin: 20px;
+        }
+
+        button{
+            background-color: black;
+            color: azure;
+            font-size: xx-large;
+        }
+
+        p, h2{
+            width: 50%;
+            margin: auto;
+            margin: auto;
+            text-align: center;
+            margin-top: 30px;
+            color: azure;
+        }
+        h1{
+            margin: 0;
+        }
+
+        #details{
+            margin: 20px;
+            background-color: rgba(0,0,0,0.2);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>ONLINE JUNKYARD - WSZYSTKO ZA ZŁOTÓWKĘ</h1></header>
+    <main>
+        
+        <img class="productimg" src="{% static x.image_url %}">
+        <div id="details">
+            <h2>{{x.name}}</h2>
+            <p>{{x.description}}</p>
+        </div>
+        
+        
+
+    </main>
+    <footer><h1>Made by Jedrzej Burczynski 3C</h1></footer>
+</body>
+</html>

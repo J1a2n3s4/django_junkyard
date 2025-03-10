@@ -1,47 +1,78 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Shop Page</title>
     <style>
+
+
         body{
             font-family:'Courier New';
+            background: url("/static/BG.png");
+            padding: 0;
         }
         footer, header{
+            margin: 0;
             width: 100%;
             text-align: center;
-            background-color: lightslategray;
-            border: 1px solid darkslategrey
+            background-color: rgb(118, 118, 118)
         }
-
         main{
             display: flex;
-            background-color: darkslategray;
+            background-color: rgba(0,0,0,0.2);
+            margin:0;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .product{
             text-align: center;
-            width: 24vw;
-            height: 24vw;
-            background-color: grey;
+            width: 22vw;
+            padding: auto;
+            height: 40vw;
+            background-color: rgb(100,100,100);
             color:azure;
             margin: 20px;
+        }
+
+        .productimg{
+            width: 20vw;
+            height: 20vw;
+            object-fit: cover;
+            margin: 20px;
+        }
+
+        button{
+            background-color: black;
+            color: azure;
+            font-size: xx-large;
+        }
+
+        p{
+            width: 50%;
+            margin: auto;
+            margin-bottom: 70px;
+        }
+        h1{
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <header><h1>ONLINE JUNKYARD</h1></header>
+    <header><h1>ONLINE JUNKYARD - WSZYSTKO ZA ZŁOTÓWKĘ</h1></header>
     <main>
 
         {% for x in products %}
         
         <div class="product">
-            <img class="" src="{% static x.image_url %}">
+            <img class="productimg" src="{% static x.image_url %}">
             <h2>{{x.name}}</h2>
             <p>{{x.description}}</p>
-
+            <form action="products/{{x.link}}">
+                <button type="submit">KUP</button>
+            </form>
         </div>
 
         {% endfor %}
