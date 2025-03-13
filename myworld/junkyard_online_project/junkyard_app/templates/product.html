@@ -65,18 +65,42 @@
         #details{
             margin: 20px;
             background-color: rgba(0,0,0,0.2);
+            width:30vw;
             padding: 10px;
+        }
+
+        form{
+            width: 50%;
+            margin: auto;
+            color: azure;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <header><h1>ONLINE JUNKYARD - WSZYSTKO ZA ZŁOTÓWKĘ</h1></header>
+    <header><h1>ONLINE JUNKYARD - MARNUJESZ TU PIENIĄDZE!</h1></header>
     <main>
         
         <img class="productimg" src="{% static x.image_url %}">
         <div id="details">
             <h2>{{x.name}}</h2>
             <p>{{x.description}}</p>
+            <p>
+                Aby kupić produkt proszę dać mi 100zł w szkole. Następnego dnia staniesz się dumnym nabywcą tego jakże niewartego pieniędzy produktu!
+            </p>
+
+            <H2>DANE KONTAKTOWE</H2>
+            <p>(napisze jesli bede mial ochote)</p>
+            <br>
+            <br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="telefon">Numer Telefonu:</label>
+                <input type="tel" name="telefon"><br>
+                <label for="mail">Adres e-mail:</label>
+                <input type="email" name="mail"><br><br>
+                <button type="submit">WYSLIJ</button>
+            </form>
         </div>
         
         
