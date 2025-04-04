@@ -10,9 +10,11 @@
 
 
         body{
+            text-align: center;
             font-family:'Courier New';
             background: url("/static/BG.png");
             padding: 0;
+            color:azure;
         }
         footer, header{
             margin: 0;
@@ -26,13 +28,14 @@
             margin:0;
             flex-wrap: wrap;
             justify-content: center;
+            
         }
         .product{
             text-align: center;
             width: 22vw;
-            height: 100vh;
+            height: 50vw;
             background-color: rgb(100,100,100);
-            color:azure;
+            
             margin: 20px;
         }
 
@@ -40,9 +43,7 @@
             width: 20vw;
             height: 20vw;
             object-fit: cover;
-            margin: auto;
-            margin-top: 20px;
-            
+            margin: 20px;
         }
 
         button{
@@ -58,35 +59,40 @@
         p{
             width: 80%;
             margin: auto;
-            height: 10%;
+            height: 20%;
         }
         h1{
-            margin: 0;
+            margin-top:1rem;
         }
         h2{
-            height: 7%;
+            height: 15%;
             width: 100%;
+        }
+
+        input{
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <header><h1>ONLINE JUNKYARD - MARNUJESZ TU PIENIĄDZE!</h1></header>
     <main>
+        <br>
+        <h1>Cena Produktu: {{x.name}}: {{x.price}}0zł</h1>
 
-        {% for x in products %}
-        
-        <div class="product">
-            <img class="productimg" src="{% static x.image_url %}">
-            <h2>{{x.name}}</h2>
-            <p>{{x.description}}</p>
-            <h3>{{x.price}}0zł</h3>
-            <form action="products/{{x.link}}">
-                <button type="submit">KUP</button>
-            </form>
-        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="place">Miejsce spotkania:</label>
+            <input type="text" name="place" id=""><br>
+            <label for="time">Data i Godzina spotkania:</label>
+            <input type="datetime" name="time" id=""><br>
+            <label for="tele">Numer telefonu:</label>
+            <input type="tel" name="tele" id=""><br>
 
-        {% endfor %}
+            <button type="submit">WYSLIJ</button>
 
+        </form>
     </main>
     <footer><h1>Made by Jedrzej Burczynski 3C</h1></footer>
 </body>

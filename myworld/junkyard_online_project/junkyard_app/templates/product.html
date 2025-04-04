@@ -50,7 +50,7 @@
             font-size: xx-large;
         }
 
-        p, h2{
+        p, h2, h3{
             width: 50%;
             margin: auto;
             margin: auto;
@@ -75,6 +75,37 @@
             color: azure;
             text-align: center;
         }
+
+        #linkdiv{
+            text-align: center;
+            margin-top: 10%;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20%;
+        }
+
+        a{
+            
+            background-color: azure;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: black;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        a:hover{
+            background-color: rgb(10,10,10);
+            color: azure
+        }
+
+        #buyBG{
+            padding-top: 20px;
+            height: 30%;
+            background-color: rgba(0,0,0,0.2);
+        }
+
     </style>
 </head>
 <body>
@@ -83,12 +114,18 @@
         
         <img class="productimg" src="{% static x.image_url %}">
         <div id="details">
-            <h2>{{x.name}}</h2>
-            <p>{{x.description}}</p>
-            <p>
-                Aby kupić produkt proszę dać mi 100zł w szkole. Następnego dnia staniesz się dumnym nabywcą tego jakże niewartego pieniędzy produktu!
-            </p>
+            
+            <div id="buyBG">
+                <h2>{{x.name}}</h2>
+                <h3>{{x.price}}</h3>
+                <p>{{x.description}}</p>
 
+                <div id="linkdiv">
+                    <a href="/main/buyproduct/{{x.link}}/">KUP TERAZ</a>
+                </div>
+            </div>
+            <br>
+            
             <H2>DANE KONTAKTOWE</H2>
             <p>(napisze jesli bede mial ochote)</p>
             <br>

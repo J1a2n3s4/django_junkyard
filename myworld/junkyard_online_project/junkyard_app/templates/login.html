@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:'Courier New';
+            background: url("/static/BG.png");
+            padding: 0;
+            color: azure;
+        }
+        a{
+            color: gray;
+        }
+        form{
+            margin: auto;
+            width: 30%;
+            height: 40vh;
+            color: azure;
+            background-color: rgba(10, 10, 10, 0.322);
+            text-align: center;
+            padding: auto;
+        }
+
+        input{
+            background-color: gray;
+            margin-top: 20px;
+        }
+        footer, header{
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgb(118, 118, 118)
+        }
+
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>ONLINE JUNKYARD - MARNUJESZ TU PIENIĄDZE!</h1></header>
+
+    
+    <form action="" method="post" id="login">
+        {% csrf_token %}
+        <h1>LOGIN</h1>
+        <label for="user">Nazwa Użytkownika:</label>
+        <input type="text" name="user"><br>
+        <label for="password">Hasło:</label>
+        <input type="password" name = "password"> <br>
+        <input type="submit" value="ZALOGUJ">
+    </form>
+    <hr>
+    <h2>Nie masz konta? Zarejestruj się <a href="/register">tutaj</a></h2>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:'Courier New';
+            background: url("/static/BG.png");
+            padding: 0;
+            color: azure;
+        }
+        a{
+            color: gray;
+        }
+        form{
+            margin: auto;
+            width: 30%;
+            height: 50vh;
+            color: azure;
+            background-color: rgba(10, 10, 10, 0.322);
+            text-align: center;
+            padding: auto;
+        }
+
+        input{
+            background-color: gray;
+            margin-top: 20px;
+        }
+        footer, header{
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgb(118, 118, 118)
+        }
+
+        h2{
+            text-align: center;
+        }
+        #error{
+            text-align: center;
+            color:lightcoral
+        }
+    </style>
+</head>
+<body>
+    <header><h1>ONLINE JUNKYARD - MARNUJESZ TU PIENIĄDZE!</h1></header>
+
+    
+    <form action="" method="post" id="login">
+        {% csrf_token %}
+        <h1>REGISTER</h1>
+        <label for="name">Nazwa użytkownika</label>
+        <input type="text" name="name"><br>
+        <label for="mail">Adres E-Mail:</label>
+        <input type="email" name="mail"><br>
+        <label for="password">Hasło:</label>
+        <input type="password" name = "password"> <br>
+        <label for="password2">Powtórz hasło:</label>
+        <input type="password" name = "password2"> <br>
+        <input type="submit" value="ZAREJESTRUJ">
+    </form>
+
+    <h2 id="error">{{error}}</h2>
+    <br>
+    <hr>
+</body>
+</html>
