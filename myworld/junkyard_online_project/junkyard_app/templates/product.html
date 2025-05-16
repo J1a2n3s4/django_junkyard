@@ -121,23 +121,10 @@
                 <p>{{x.description}}</p>
 
                 <div id="linkdiv">
-                    <a href="/main/buyproduct/{{x.link}}/">KUP TERAZ</a>
+                    <a href="/buyproduct/{{x.link}}/">KUP TERAZ</a>
                 </div>
             </div>
             <br>
-            
-            <H2>DANE KONTAKTOWE</H2>
-            <p>(napisze jesli bede mial ochote)</p>
-            <br>
-            <br>
-            <form action="" method="POST">
-                {% csrf_token %}
-                <label for="telefon">Numer Telefonu:</label>
-                <input type="tel" name="telefon"><br>
-                <label for="mail">Adres e-mail:</label>
-                <input type="email" name="mail"><br><br>
-                <button type="submit">WYSLIJ</button>
-            </form>
         </div>
         
         

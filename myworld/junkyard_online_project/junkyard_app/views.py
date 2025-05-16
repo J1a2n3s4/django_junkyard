@@ -21,12 +21,9 @@ def login_page(request):
     user = authenticate(request, username=user_name, password=password)
     if user is not None:
         login(request, user)
-        redirect("main/")
+        return redirect("/")
     else:
-        content["error"] = "Invalid login."
-
-  
-
+        content["error"] = "Niezgodny login lub brak zalogowanego użytkownika"
   return HttpResponse(template.render(content, request))
 
 
@@ -42,20 +39,17 @@ def register(request):
     password1 = request.POST["password"]
     password2 = request.POST["password2"]
     content["error"] = ""
-    if not User.objects.filter(username = name) and password1 == password2:
+    if not User.objects.filter(username = name).exists() and password1 == password2:
       user = User.objects.create_user(name,mail,password1)
       user.save()
-      redirect("/login/")
+      content["error"] = ""
+      return redirect("/login")
     else:
         content["error"] = "Invalid register."
-    return HttpResponse(template.render(content, request))
+  return HttpResponse(template.render(content, request))
 
 
 def product_page(request, name_url):
-  if request.method == "POST":
-    telefon = request.POST.get('telefon')
-    mail = request.POST.get('mail')
-    kontakt(tel = telefon, email = mail).save()
   content = {
     "x": product.objects.get(link = name_url)
   }
@@ -66,7 +60,11 @@ def buy(request, name_url):
     content = {
     "x": product.objects.get(link = name_url)
     }
+    if request.POST.get('usun') == 'true':
+      product.objects.get(link = name_url).delete()
+
+      return redirect('/')
     return render(request, 'buy.html', context=content)
   else:
-    return render(request, 'nologin.html')
+    return render(request, 'login.html')
 
